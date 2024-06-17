@@ -1,5 +1,5 @@
 import { FooterTheme } from '@/features/bubble/types';
-import { Show, onCleanup, onMount } from 'solid-js';
+import { onCleanup, onMount } from 'solid-js';
 
 type Props = {
   footer?: FooterTheme;
@@ -39,38 +39,24 @@ export const Badge = (props: Props) => {
   });
 
   return (
-    <>
-      <Show when={props.footer?.showFooter === undefined || props.footer?.showFooter === null || props.footer?.showFooter === true}>
-        <span
-          class="w-full text-center px-[10px] pt-[6px] pb-[10px] m-auto text-[13px]"
-          style={{
-            color: props.footer?.textColor ?? props.poweredByTextColor ?? defaultTextColor,
-            'background-color': props.badgeBackgroundColor ?? '#ffffff',
-          }}
-        >
-          {props.footer?.text ?? 'Powered by'}
-          <a
-            ref={liteBadge}
-            href={props.footer?.companyLink ?? 'https://flowiseai.com'}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="lite-badge"
-            id="lite-badge"
-            style={{ 'font-weight': 'bold', color: props.footer?.textColor ?? props.poweredByTextColor ?? defaultTextColor }}
-          >
-            <span>&nbsp;{props.footer?.company ?? 'Flowise'}</span>
-          </a>
-        </span>
-      </Show>
-      <Show when={props.footer?.showFooter === false}>
-        <span
-          class="w-full text-center px-[10px] pt-[6px] pb-[10px] m-auto text-[13px]"
-          style={{
-            color: props.footer?.textColor ?? props.poweredByTextColor ?? defaultTextColor,
-            'background-color': props.badgeBackgroundColor ?? '#ffffff',
-          }}
-        />
-      </Show>
-    </>
+    <span
+      class="w-full text-center px-[10px] pt-[6px] pb-[10px] m-auto text-[13px]"
+      style={{
+        color: props.poweredByTextColor ?? defaultTextColor,
+        'background-color': props.badgeBackgroundColor ?? '#ffffff',
+      }}
+    >
+      <a
+        ref={liteBadge}
+        href={'https://apps.shopify.com/kesem-ai-product-recommender'}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="lite-badge"
+        id="lite-badge"
+        style={{ 'font-weight': 'bold', color: props.poweredByTextColor ?? defaultTextColor }}
+      >
+        <span>Powered by kesem ✨</span>
+      </a>
+    </span>
   );
 };
