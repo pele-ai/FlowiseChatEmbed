@@ -1,0 +1,19 @@
+<html>
+
+<body>
+
+    <script type="module">
+        import Chatbot from "./app.js"
+        Chatbot.init({
+            chatflowid: "ea1550a3-3e39-4b73-98fd-14aeabf3fda0",
+            apiHost: "http://localhost:3000",
+            chatflowConfig: {
+                vars: {
+                    customerId: "customer_123",
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
